@@ -1,0 +1,15 @@
+[
+    { "name": "Shield", "cost": 10, "chance": 0.9},
+    { "name": "Padded Armour", "cost": 5, "chance": 1},
+    { "name": "Leather Armour", "cost": 10, "chance": 0.9},
+    { "name": "Studded Leather", "cost": 45, "chance": 0.6},
+    { "name": "Hide Armour", "cost": 10, "chance": 1},
+    { "name": "Chain Shirt", "cost": 50, "chance": 0.9},
+    { "name": "Scale Mail", "cost": 50, "chance": 0.9},
+    { "name": "Breastplate", "cost": 400, "chance": 0.6},
+    { "name": "Half Plate", "cost": 750, "chance": 0.6},
+    { "name": "Ring Mail", "cost": 30, "chance": 1},
+    { "name": "Chain Mail", "cost": 75, "chance": 0.9},
+    { "name": "Splint Armour", "cost": 200, "chance": 0.6},
+    { "name": "Plate Armour", "cost": 1500, "chance": 0.4}
+]

@@ -1,0 +1,210 @@
+<html>
+<head>
+<script>
+/*
+Written by Cricketot
+for 5th ed Dungeons and Dragons, current at 2019.
+
+This is intended to be used with DnD Marketplace.html
+Whilst the marketplace has the weapons, armour, gear and tools this has the animals, ships, trade goods and inn services.
+All instructions can be found in the comment blocks of DnD Marketplace.html
+*/
+
+</script>
+                
+    <title>The Docks and Inn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        .column {
+        float: left;
+        width: 25%;
+        padding: 10px;
+        }
+
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var always              =100/100
+        var common              =90/100
+        var uncommon            =60/100
+        var rare                =40/100
+        var stocklevel          =100/100
+
+        var mount_items = [
+            { name: "Camel", cost: 20, chance: uncommon},
+            { name: "Donkey or mule", cost: 8, chance: always},
+            { name: "Elephant", cost: 200, chance: rare},
+            { name: "Draft Horse", cost: 50, chance: common},
+            { name: "Riding Horse", cost: 75, chance: common},
+            { name: "Mastiff", cost: 25, chance: uncommon},
+            { name: "Pony", cost: 30, chance: common},
+            { name: "Warhorse", cost: 400, chance: uncommon},
+            { name: "Galley", cost: 30000, chance: rare},
+            { name: "Keelboat", cost: 3000, chance: uncommon},
+            { name: "Longship", cost: 10000, chance: uncommon},
+            { name: "Rowboat", cost: 50, chance: common},
+            { name: "Sailing ship", cost: 10000, chance: uncommon},
+            { name: "Warship", cost: 25000, chance: rare},
+        ];
+
+        var equipment_items = [
+            { name: "Padded Barding", cost: 20, chance: always},
+            { name: "Leather Barding", cost: 40, chance: common},
+            { name: "Studded Leather Barding", cost: 180, chance: uncommon},
+            { name: "Hide Barding", cost: 40, chance: always},
+            { name: "Chain Barding", cost: 200, chance: common},
+            { name: "Scale Mail Barding", cost: 200, chance: common},
+            { name: "Breastplate Barding", cost: 1600, chance: uncommon},
+            { name: "Half Plate Barding", cost: 3000, chance: uncommon},
+            { name: "Ring Mail Barding", cost: 120, chance: always},
+            { name: "Chain Mail Barding", cost: 300, chance: common},
+            { name: "Splint Barding", cost: 800, chance: uncommon},
+            { name: "Plate Barding", cost: 6000, chance: rare},
+            { name: "Bit and Bridle", cost: 2, chance: always},
+            { name: "Carriage", cost: 100, chance: uncommon},
+            { name: "Cart", cost: 15, chance: common},
+            { name: "Chariot", cost: 250, chance: uncommon},
+            { name: "Feed", cost: 0.05, chance: always},
+            { name: "Exotic Saddle", cost: 60, chance: uncommon},
+            { name: "Military Saddle", cost: 20, chance: common},
+            { name: "Pack Saddle", cost: 5, chance: always},
+            { name: "Riding Saddle", cost: 10, chance: always},
+            { name: "Saddlebags", cost: 4, chance: common},
+            { name: "Sled", cost: 20, chance: common},
+            { name: "Stabling (per day)", cost: 0.5, chance: always},
+            { name: "Wagon", cost: 35, chance: common},
+            ];
+
+            var trade_items = [
+            { name: "1 lb. of Wheat", cost: 0.01, chance: always},
+            { name: "1 lb. of Flour", cost: 0.02, chance: always},
+            { name: "1 Chicken", cost: 0.02, chance: always},
+            { name: "1 lb. of Salt", cost: 0.05, chance: always},
+            { name: "1 lb. of Iron", cost: 0.1, chance: always},
+            { name: "1 sq. yd. of Canvas", cost: 0.1, chance: always},
+            { name: "1 sq. yd. of Cotton Cloth", cost: 0.5, chance: always},
+            { name: "1 lb. of Copper", cost: 0.5, chance: always},
+            { name: "1 lb. of Ginger", cost: 1, chance: always},
+            { name: "1 Goat", cost: 1, chance: always},
+            { name: "1 Sheep", cost: 2, chance: always},
+            { name: "1 lb. of Cinnamon", cost: 2, chance: common},
+            { name: "1 lb. of Pepper", cost: 2, chance: common},
+            { name: "1 lb. of Cloves", cost: 3, chance: common},
+            { name: "1 Pig", cost: 3, chance: always},
+            { name: "1 sq. yd. of Linen", cost: 5, chance: common},
+            { name: "1 lb. of Silver", cost: 5, chance: common},
+            { name: "1 sq. yd. of Silk", cost: 10, chance: common},
+            { name: "1 Cow", cost: 10, chance: always},
+            { name: "1 lb. of Saffron", cost: 15, chance: uncommon},
+            { name: "1 Ox", cost: 15, chance: common},
+            { name: "1 lb. of Gold", cost: 50, chance: common},
+            { name: "1 lb. of Platinum", cost: 500, chance: uncommon},
+            ];
+
+            var services_items = [
+            { name: "Gallon of Ale", cost: 0.2, chance: always},
+            { name: "Mug of Ale", cost: 0.04, chance: always},
+            { name: "Banquet (per person)", cost: 10, chance: always},
+            { name: "Bread, loaf", cost: 0.02, chance: always},
+            { name: "Cheese, hunk", cost: 0.1, chance: always},
+            { name: "Meat, chunk", cost: 0.3, chance: always},
+            { name: "Common Wine (pitcher)", cost: 0.2, chance: always},
+            { name: "Fine Wine (bottle)", cost: 10, chance: always},
+            { name: "Squalid room (per day)", cost: 0.07, chance: always},
+            { name: "Poor room (per day)", cost: 0.1, chance: always},
+            { name: "Modest room (per day)", cost: 0.5, chance: always},
+            { name: "Comfortable room (per day)", cost: 0.8, chance: always},
+            { name: "Wealthy room (per day)", cost: 2, chance: always},
+            { name: "Aristocratic room (per day)", cost: 4, chance: always},
+            { name: "Squalid meals (per day)", cost: 0.03, chance: always},
+            { name: "Poor meals (per day)", cost: 0.06, chance: always},
+            { name: "Modest meals (per day)", cost: 0.3, chance: always},
+            { name: "Comfortable meals (per day)", cost: 0.5, chance: always},
+            { name: "Wealthy meals (per day)", cost: 0.8, chance: always},
+            { name: "Aristocratic meals (per day)", cost: 2, chance: always},
+            { name: "Coach Cab (per mile)", cost: 0.03, chance: always},
+            { name: "Coach Cab (within a city)", cost: 0.01, chance: always},
+            { name: "Skilled Hireling (per day)", cost: 2, chance: always},
+            { name: "Untrained Hireling (per day)", cost: 0.2, chance: always},
+            { name: "Messenger (per mile)", cost: 0.02, chance: always},
+            { name: "Road or Gate Toll", cost: 0.01, chance: always},
+            { name: "Ship's Passage (per mile)", cost: 0.1, chance: always},
+
+            ];
+
+    </script>
+
+    <div class="row">
+
+        <div class="column" style="background-color:#bbb;">
+            <h2>Animals and Vessels</h2>
+                <script>
+                    document.write('<p>')
+                    for (i = 0; i < mount_items.length; i++) {
+                        if (mount_items[i]["chance"]>Math.random() / stocklevel) {
+                        document.write(mount_items[i]["name"] + " " + mount_items[i]["cost"] + " gp<br />");
+                        }
+                    }
+
+                    document.write('</p>')
+                </script>
+        </div>
+        
+        <div class="column" style="background-color:#ccc;">
+            <h2>Barding and Equipment</h2>
+            <script>
+                document.write('<p>')
+                var i;
+                for (i = 0; i < equipment_items.length; i++) {
+                    if (equipment_items[i]["chance"]>Math.random() / stocklevel) {
+                    document.write(equipment_items[i]["name"] + " " + equipment_items[i]["cost"] + " gp<br />");
+                    }
+                }
+                document.write('</p>')
+            </script>
+        </div>
+
+        <div class="column" style="background-color:#bbb;">
+            <h2>Trade Goods</h2>
+                <script>
+                    document.write('<p>') 
+                    for (i = 0; i < trade_items.length; i++) {
+                        if (trade_items[i]["chance"]>Math.random() / stocklevel) {
+                        document.write(trade_items[i]["name"] + " " + trade_items[i]["cost"] + " gp<br />");
+                        }
+                    }
+                    document.write('</p>')
+                </script>
+        </div>
+
+        <div class="column" style="background-color:#ccc;">
+                <h2>Goods and Services</h2>
+                <script>
+                    document.write('<p>')
+                    var i;
+                    for (i = 0; i < services_items.length; i++) {
+                        if (services_items[i]["chance"]>Math.random() / stocklevel) {
+                        document.write(services_items[i]["name"] + " " + services_items[i]["cost"] + " gp<br />");
+                        }
+                    }
+                    document.write('</p>')
+                </script>
+            </div>
+    
+    </div>
+
+    </script>
+</body>
+</html>
+

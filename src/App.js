@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
+import Context from './Context';
 import './App.css';
+import CommonItemsContainer from './containers/CommonItemsContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+
+  }
+
+  componentDidMount() {
+    this.generateItems();
+  }
+
+  generateCommonItems = () => {
+    //TODO: get the items list and break them up
+  }
+
+  render() {
+    return (
+      <Context.Provider value={{
+        state: this.state,
+        actions: null
+      }}>
+        <div className="container">
+          <h2>Welcome to Town Generator!</h2>
+          <CommonItemsContainer />
+        </div>
+      </Context.Provider>
+    );
+  }
 }
 
 export default App;
