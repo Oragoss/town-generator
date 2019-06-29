@@ -1,5 +1,5 @@
 import React from 'react';
-import {armorItemsList} from '../data/armorItemsList';
+import armorItemsList from '../data/armorItemsList';
 
 export default class ArmorContainer extends React.Component {
     state = {
@@ -10,11 +10,11 @@ export default class ArmorContainer extends React.Component {
         const items = armorItemsList.map(elem => {
             if(elem.chance > (Math.random()/1)) {
                 return (
-                    <tr>
-                        <th scope="row">{elem.quantity}</th>
-                        <td>{elem.name}</td>
-                        <td>{elem.cost}gp</td>
-                    </tr>
+                    <React.Fragment>
+                        <div className="col-md-4 section">{elem.quantity}</div>
+                        <div className="col-md-4 section">{elem.name}</div>
+                        <div className="col-md-4 section">{elem.cost}</div>
+                    </React.Fragment>
                 );
             }
         });
@@ -29,18 +29,16 @@ export default class ArmorContainer extends React.Component {
 
         return (
             <React.Fragment>
-                <table class="table table-striped table-dark">
-                    <thead>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {items}
-                    </tbody>
-                </table>
+                <h1 className="text-center">Armor</h1>
+                <hr />
+                <div className="row section-list">
+                    <div className="col-md-4">No.</div>
+                    <div className="col-md-4">Name</div>
+                    <div className="col-md-4">Price</div>
+                </div>
+                <div className="row section-list">
+                    {items}
+                </div>
             </React.Fragment>
         );
     }

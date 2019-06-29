@@ -14,4 +14,4 @@ const armorItemsList = [
     { "quantity": 1, "name": "Plate Armour", "cost": 1500, "chance": 0.4}
 ]
 
-module.exports = {armorItemsList};
+module.exports = armorItemsList;
