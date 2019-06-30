@@ -1,4 +1,4 @@
-[
+const professionItems = [
     { "name": "Alchemist's Supplies", "cost": 50, "chance": 0.6},
     { "name": "Brewer's Supplies", "cost": 20, "chance": 0.9},
     { "name": "Calligrapher's Supplies", "cost": 10, "chance": 0.6},
@@ -37,3 +37,5 @@
     { "name": "Poisoner's Kit", "cost": 50, "chance": 0.6},
     { "name": "Thieves' Tools", "cost": 25, "chance": 0.6}
 ]
+
+module.exports = professionItems;

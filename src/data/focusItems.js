@@ -1,4 +1,4 @@
-[
+const focusItems = [
     { "name": "Arcane Focus Crystal", "cost": 10, "chance": 0.9},
     { "name": "Arcane Focus Orb", "cost": 20, "chance": 0.9},
     { "name": "Arcane Focus Rod", "cost": 10, "chance": 0.9},
@@ -12,3 +12,5 @@
     { "name": "Holy Symbol Emblem", "cost": 5, "chance": 0.9},
     { "name": "Holy Symbol Reliquary", "cost": 5, "chance": 0.9}
 ]
+
+module.exports = focusItems;

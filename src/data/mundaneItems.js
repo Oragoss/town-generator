@@ -1,4 +1,4 @@
-[
+const mundaneItems = [
     { "name": "Club", "cost": 0.1, "chance": 1},
     { "name": "Dagger", "cost": 2, "chance": 0.9},
     { "name": "Greatclub", "cost": 0.2, "chance": 0.9},
@@ -36,3 +36,5 @@
     { "name": "Longbow", "cost": 50, "chance": 0.9},
     { "name": "Net", "cost": 1, "chance": 1}
 ]
+
+module.exports = mundaneItems;

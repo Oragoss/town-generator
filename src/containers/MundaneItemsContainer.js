@@ -1,13 +1,13 @@
 import React from 'react';
-import adventuringGear from '../data/adventuringGear';
+import mundaneItems from '../data/mundaneItems';
 
-export default class AdventuringGearContainer extends React.Component {
+export default class ArmorContainer extends React.Component {
     state = {
         items: ''
     }
 
     componentDidMount() {
-        const items = adventuringGear.map(elem => {
+        const items = mundaneItems.map(elem => {
             if(elem.chance > (Math.random()/1)) {
                 return (
                     <React.Fragment>
@@ -29,7 +29,7 @@ export default class AdventuringGearContainer extends React.Component {
 
         return (
             <React.Fragment>
-                <h1 className="text-center">Adventuring Gear</h1>
+                <h1 className="text-center">Mundane Items</h1>
                 <hr />
                 <div className="row section-list">
                     <div className="col-md-4">No.</div>

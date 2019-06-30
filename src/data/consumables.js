@@ -1,4 +1,4 @@
-[
+const consumables = [
     { "name": "Acid vial", "cost": 25, "chance": 0.6},
     { "name": "Alchemist's Fire Flask", "cost": 50, "chance": 0.4},
     { "name": "Antitoxin Vial", "cost": 50, "chance": 0.6},
@@ -9,3 +9,5 @@
     { "name": "Potion of Healing", "cost": 50, "chance": 0.9},
     { "name": "Rations (1 day)", "cost": 0.5, "chance": 1}
 ]
+
+module.exports = consumables;

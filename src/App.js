@@ -3,6 +3,12 @@ import Collapsible from 'react-collapsible';
 import './App.css';
 import ArmorContainer from './containers/ArmorContainer';
 import AdventuringGearContainer from './containers/AdventuringGearContainer';
+import AmmunitionContainer from './containers/AmmunitionContainer';
+import ConsumablesContainer from './containers/ConsumablesContainer';
+import FocusItemsContainer from './containers/FocusItemsContainer';
+import MagicalItemsContainer from './containers/MagicalItemContainer';
+import MundaneItemsContainer from './containers/MundaneItemsContainer';
+import ProfessionItemsContainer from './containers/ProfessionItemsContainer';
 
 class App extends React.Component {
   state = {
@@ -43,13 +49,50 @@ class App extends React.Component {
           <div className="row">
             <div id="armor" className="col-md-5">
               {/* <Collapsible open={true} trigger="Armor" className="text-center"> */}
-                <ArmorContainer />
+                <ArmorContainer style={{overflow:"scroll"}} />
               {/* </Collapsible> */}
             </div>
             <div className="col-md-2"></div>
             <div id="adventure" className="col-md-5">
               {/* <Collapsible open={true} trigger="Adventuring Gear"> */}
-                <AdventuringGearContainer />
+                <AdventuringGearContainer  />
+              {/* </Collapsible> */}
+            </div>
+          </div>
+          <div className="row">
+            <div id="armor" className="col-md-5">
+              {/* <Collapsible open={true} trigger="Armor" className="text-center"> */}
+                <AmmunitionContainer />
+              {/* </Collapsible> */}
+            </div>
+            <div className="col-md-2"></div>
+            <div id="adventure" className="col-md-5">
+              {/* <Collapsible open={true} trigger="Adventuring Gear"> */}
+                <ConsumablesContainer />
+              {/* </Collapsible> */}
+            </div>
+          </div>
+          <div className="row">
+            <div id="armor" className="col-md-5">
+              {/* <Collapsible open={true} trigger="Armor" className="text-center"> */}
+                <FocusItemsContainer style={{overflow:"scroll"}} />
+              {/* </Collapsible> */}
+            </div>
+            <div className="col-md-2"></div>
+            <div id="adventure" className="col-md-5">
+              {/* <Collapsible open={true} trigger="Adventuring Gear"> */}
+                <MagicalItemsContainer  />
+              {/* </Collapsible> */}
+            </div>
+            <div id="armor" className="col-md-5">
+              {/* <Collapsible open={true} trigger="Armor" className="text-center"> */}
+                <MundaneItemsContainer />
+              {/* </Collapsible> */}
+            </div>
+            <div className="col-md-2"></div>
+            <div id="adventure" className="col-md-5">
+              {/* <Collapsible open={true} trigger="Adventuring Gear"> */}
+                <ProfessionItemsContainer />
               {/* </Collapsible> */}
             </div>
           </div>

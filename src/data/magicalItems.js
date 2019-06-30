@@ -1,4 +1,4 @@
-[
+const magicalItems = [
     { "name": "Bead of Nourishment", "cost": 5, "chance": 0.03},
     { "name": "Bead of Refreshment", "cost": 5, "chance": 0.03},
     { "name": "Boots of False Tracks", "cost": 50, "chance": 0.03},
@@ -42,3 +42,5 @@
     { "name": "Wand of Scowls", "cost": 60, "chance": 0.03},
     { "name": "Wand of Smiles", "cost": 60, "chance": 0.03}
 ]
+
+module.exports = magicalItems;
